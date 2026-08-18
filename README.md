@@ -8,11 +8,15 @@
 
 > Intelligent document processing and data structuring for higher education
 
-<p align="center">
-  <img src="assets/mandacaru-logo.png" alt="Mandacaru logo" width="360">
-</p>
+<table>
+  <tr>
+    <td align="center" bgcolor="#F7F9F8">
+      <img src="assets/mandacaru-logo.png" alt="Mandacaru logo" width="520">
+    </td>
+  </tr>
+</table>
 
-[![Documentation](https://img.shields.io/badge/documentation-English-2f4f3a)](docs/README.md)
+[![Documentation](https://img.shields.io/badge/documentation-English-1F7A4F)](docs/README.md)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Interface-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
 
@@ -29,6 +33,23 @@ The application was developed for the STI/UFS context. This establishes the inst
 | Motivation | Documentation | Product | Impact |
 | --- | --- | --- | --- |
 | Make institutional PDFs easier to process and reuse. | Requirements, architecture, manuals, validation, issues, and benchmarks. | Upload PDFs, classify documents, extract fields, inspect tables, and export data. | Demonstrated structured-processing flows and technical evaluation; potential reduction of manual document work. |
+
+## Brand System
+
+The public portfolio uses Mandacaru's official visual identity: a green-led palette, restrained neutral surfaces, and a clear typographic hierarchy for technical reading.
+
+| Token | Hex | Role |
+| --- | --- | --- |
+| Mandacaru Green | `#1F7A4F` | Primary brand and links |
+| Deep Green | `#0F3D2E` | Strong contrast and headings |
+| Medium Green | `#3CB371` | Secondary emphasis |
+| Near Black | `#1F1F1F` | Primary text |
+| Light Gray | `#E5E7EB` | Dividers and borders |
+| Background Gray | `#F7F9F8` | Soft surfaces |
+| Institutional Yellow | `#F2C94C` | Focus and calls to action |
+| Mandacaru Orange | `#FF751F` | Alerts and emphasis |
+
+Typography follows the media kit's pairing: **IBM Plex Sans** for headings and **Inter** for body copy and interface-oriented text.
 
 ## Motivation and Context
 
