@@ -1,14 +1,16 @@
 <p align="center">
-  <a href="https://github.com/DCOMP-UFS"><img src="assets/dcomp-ufs.jpg" alt="Department of Computing, UFS" height="110"></a>
-  <a href="https://www.ufs.br/"><img src="assets/ufs-logo.png" alt="Federal University of Sergipe" height="110"></a>
-  <a href="https://stic.ufs.br/pagina/20306"><img src="assets/sti-ufs-logo.png" alt="Information Technology Superintendency, UFS" height="110"></a>
+  <a href="https://github.com/DCOMP-UFS"><img src="assets/dcomp-ufs.png" alt="Department of Computing, UFS" height="88"></a>
+  <a href="https://www.ufs.br/"><img src="assets/ufs-logo.png" alt="Federal University of Sergipe" height="88"></a>
+  <a href="https://stic.ufs.br/pagina/20306"><img src="assets/sti-ufs-logo.png" alt="Information Technology Superintendency, UFS" height="88"></a>
 </p>
 
 # Mandacaru
 
 > Intelligent document processing and data structuring for higher education
 
-<img src="assets/mandacaru-logo.png" alt="Mandacaru logo" width="320">
+<p align="center">
+  <img src="assets/mandacaru-logo.png" alt="Mandacaru logo" width="360">
+</p>
 
 [![Documentation](https://img.shields.io/badge/documentation-English-2f4f3a)](docs/README.md)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
@@ -160,19 +162,18 @@ The repository contains a benchmark of local language models for PDF-to-CSV extr
 
 - CSV validity.
 - Header and row conformity.
-- Cell-level agreement with a reference output.
 - Recorded p50 and p95 processing time.
 - Trade-offs between response quality, latency, and implementation complexity.
 
-| Model | Recorded p50 / p95 | Valid CSV | Header and row checks | Cell accuracy |
-| --- | ---: | --- | --- | ---: |
-| Gemma 7B | 176.12 s / 176.12 s | Yes | Passed | 5% |
-| Mistral 7B | 445.30 s / 445.30 s | Yes | Passed | 0% |
-| Llama 3 8B | 187.50 s / 187.50 s | No | Failed | 0% |
+| Model | Recorded p50 / p95 | Valid CSV | Header and row checks |
+| --- | ---: | --- | --- |
+| Gemma 7B | 176.12 s / 176.12 s | Yes | Passed |
+| Mistral 7B | 445.30 s / 445.30 s | Yes | Passed |
+| Llama 3 8B | 187.50 s / 187.50 s | No | Failed |
 
 ### Problem -> Alternatives -> Experiment -> Decision
 
-The engineering problem was how to obtain structured fields from extracted PDF text while preserving a strict output contract. Alternative local models were evaluated against structural validity, content agreement, and latency. The recorded snapshot did not establish a production-ready winner: Gemma produced the fastest valid output, Mistral produced valid formatting at higher latency, and Llama 3 8B did not satisfy the output contract. The result supports treating local-model integration as an evaluated engineering path rather than a guaranteed production capability.
+The engineering problem was how to obtain structured fields from extracted PDF text while preserving a strict output contract. Alternative local models were evaluated against structural validity and latency. The recorded snapshot did not establish a production-ready winner: Gemma produced the fastest valid output, Mistral produced valid formatting at higher latency, and Llama 3 8B did not satisfy the output contract. The result supports treating local-model integration as an evaluated engineering path rather than a guaranteed production capability.
 
 These numbers describe a repository benchmark snapshot, not a production SLA or statistically representative evaluation. Raw documents, reference spreadsheets, prompts, and credentials remain private.
 
@@ -229,7 +230,10 @@ Modular package layout, documented interfaces, PEP 8 and PEP 257 conventions, st
 .
 ├── README.md
 ├── assets/
+│   ├── dcomp-ufs.png
 │   ├── mandacaru-logo.png
+│   ├── sti-ufs-logo.png
+│   ├── ufs-logo.png
 │   └── demo/
 │       ├── 01-upload-empty.png
 │       ├── 02-processing.png
@@ -267,7 +271,7 @@ These statements describe documented collaboration. They do not assign sole auth
 - The product supports multiple institutional document categories and a generic fallback path.
 - A user-facing Streamlit workflow supports multi-file upload, processing feedback, tabular inspection, and downloads.
 - A reusable Python package separates document processing from the interface layer.
-- Model alternatives were evaluated using output validity, schema checks, cell accuracy, and recorded latency.
+- Model alternatives were evaluated using output validity, schema checks, and recorded latency.
 - Deployment, API integration, architecture, validation, and user documentation were produced as part of the development effort.
 
 ### Potential product impact
