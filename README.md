@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="assets/dcomp-ufs.jpg" alt="Department of Computing, UFS" height="110">
+  <img src="assets/ufs-logo.png" alt="Federal University of Sergipe" height="110">
+  <img src="assets/sti-ufs-logo.png" alt="Information Technology Superintendency, UFS" height="110">
+</p>
+
 # Mandacaru
 
 > Intelligent document processing and data structuring for higher education
