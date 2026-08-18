@@ -31,4 +31,4 @@ The extraction workflow is designed to preserve information from the source docu
 
 ## Practical Limitations
 
-The reviewed implementation expects PDF files with an extractable text layer. OCR is not presented as an integrated capability in this public documentation. Processing quality and response time depend on document structure, language-model availability, and the configured deployment.
+The current workflow expects PDF files with an extractable text layer. Processing quality and response time depend on document structure, language-model availability, and the configured deployment.

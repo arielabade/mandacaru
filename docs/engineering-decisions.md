@@ -25,7 +25,3 @@ The application validates PDF inputs, reports file-level failures, preserves pro
 ## Model Evaluation Before Commitment
 
 The benchmark compares local language models using structural validity, schema conformity, cell-level agreement, and latency. The recorded results do not establish a production-ready model, which is why this portfolio documents the experiment as an engineering evaluation rather than as an unsupported performance claim.
-
-## Honest Scope Boundaries
-
-The reviewed repository does not evidence embeddings, vector storage, semantic search, or RAG. The public product is therefore positioned as document extraction and structuring. This boundary prevents the portfolio from turning planned or adjacent concepts into fabricated implementation claims.

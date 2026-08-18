@@ -64,7 +64,3 @@ The Streamlit interface accepts multiple files, processes them concurrently, dis
 ## Integration Boundary
 
 Project architecture and deployment artifacts describe an API-oriented integration surface and optional external persistence. Those materials establish an intended integration boundary, while the public runnable interface reviewed for this portfolio is Streamlit-based.
-
-## Out of Scope
-
-The reviewed project does not establish a vector database, embeddings pipeline, semantic-search engine, or retrieval-augmented generation system. It is documented as an extraction and structuring product.

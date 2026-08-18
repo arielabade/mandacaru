@@ -10,7 +10,7 @@
 
 Mandacaru is an intelligent document-processing application developed in the context of the Information Technology Superintendency (STI) of the Federal University of Sergipe (UFS). It was designed to transform institutional PDF documents into structured, reusable information through a Python processing package, a Streamlit interface, language-model-assisted extraction, validation workflows, and engineering documentation.
 
-The product story is best understood as **Motivation -> Documentation -> Product -> Impact**. The evidence in this repository shows a real product-development and engineering effort, while the scope notes distinguish implemented extraction capabilities from technologies that were explored, planned, or not evidenced.
+The product story is best understood as **Motivation -> Documentation -> Product -> Impact**. The repository shows a real product-development and engineering effort centered on intelligent document extraction and structured data delivery.
 
 ## Overview
 
@@ -114,11 +114,9 @@ flowchart TB
 
 The architecture follows a modular data-flow approach. It separates preprocessing, classification, extraction, structuring, and presentation so that the processing core can be reused independently of the interface.
 
-## Search and Retrieval Scope
+## Product Scope
 
-The briefing for this portfolio calls attention to embeddings, vector storage, semantic search, information retrieval, and RAG. The repository was checked specifically for these capabilities.
-
-They are not claimed here because the reviewed source and delivery artifacts do not evidence an embeddings pipeline, vector database, semantic-search implementation, or retrieval-augmented generation flow. Mandacaru is documented as an intelligent document **extraction and structuring** product. This scope boundary is part of the technical accuracy of the case study.
+The public product surface focuses on intelligent document extraction and structured data delivery. Its core value comes from turning institutional PDF content into organized records that can be inspected, downloaded, and consumed by other workflows.
 
 ## Engineering and Product Documentation
 
