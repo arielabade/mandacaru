@@ -17,6 +17,20 @@ PDF input
   -> CSV, XLSX, or JSONL output
 ```
 
+```mermaid
+flowchart LR
+    A[PDF input] --> B[Validation]
+    B --> C[Text extraction]
+    B --> D[PDF metadata]
+    C --> E[Document classification]
+    C --> F[Type-specific extraction]
+    E --> F
+    D --> G[Structured record]
+    F --> G
+    G --> H[Table and logs]
+    G --> I[CSV / XLSX / JSONL]
+```
+
 ## Main Components
 
 ### File management

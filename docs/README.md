@@ -1,10 +1,11 @@
 # Mandacaru Documentation
 
-This directory contains the public English documentation for Mandacaru. The documents are curated summaries of the project's user, engineering, deployment, and experimentation artifacts.
+This directory contains the public English documentation for Mandacaru. The documents are curated summaries of the project's user, engineering, deployment, validation, and experimentation artifacts.
 
 - [User Manual](user-manual.md)
 - [Architecture Overview](architecture.md)
 - [API and Deployment Guide](api-and-deployment.md)
+- [Engineering Decisions](engineering-decisions.md)
 - [Model Benchmarking](model-benchmarking.md)
 - [Product Development Notes](product-development.md)
 

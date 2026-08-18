@@ -8,108 +8,265 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Interface-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
 
-Mandacaru is an intelligent document-processing product that transforms institutional PDF files into structured, reusable data. It combines a reusable Python package, a Streamlit interface, document-specific extraction workflows, model experimentation, validation material, and product documentation.
+Mandacaru is an intelligent document-processing application developed in the context of the Information Technology Superintendency (STI) of the Federal University of Sergipe (UFS). It was designed to transform institutional PDF documents into structured, reusable information through a Python processing package, a Streamlit interface, language-model-assisted extraction, validation workflows, and engineering documentation.
 
-The project was developed for higher-education institutional documents, including resolutions, ordinances, normative instructions, and undergraduate course pedagogical projects. A generic metadata path supports documents that do not yet have a specialized schema.
+The product story is best understood as **Motivation -> Documentation -> Product -> Impact**. The evidence in this repository shows a real product-development and engineering effort, while the scope notes distinguish implemented extraction capabilities from technologies that were explored, planned, or not evidenced.
 
-## Product Overview
+## Overview
 
-Administrative and academic teams often need to read official documents and manually copy relevant fields into spreadsheets or other systems. Mandacaru reduces that repetitive work by validating PDFs, extracting text and metadata, classifying document types, applying structured extraction schemas, and exporting the result in interoperable formats.
+Mandacaru addresses the friction of working with institutional documents created primarily for human reading. Resolutions, ordinances, normative instructions, and undergraduate course pedagogical projects can contain important identifiers, dates, issuing bodies, decisions, signatures, and full text, but those fields are difficult to reuse when they remain trapped in PDF layouts.
 
-The documented user journey is:
+The application was developed for the STI/UFS context. This establishes the institutional problem environment; it does not imply university-wide adoption, production scale, official endorsement, or measured operational results beyond the evidence documented here.
 
-1. Upload one or more PDF files.
-2. Validate the file format.
-3. Extract text and document metadata.
-4. Classify the document type.
-5. Extract fields using a type-specific schema and a configured language model.
-6. Inspect structured records in a table.
-7. Download CSV, XLSX, or JSONL output.
+| Motivation | Documentation | Product | Impact |
+| --- | --- | --- | --- |
+| Make institutional PDFs easier to process and reuse. | Requirements, architecture, manuals, validation, issues, and benchmarks. | Upload PDFs, classify documents, extract fields, inspect tables, and export data. | Demonstrated structured-processing flows and technical evaluation; potential reduction of manual document work. |
 
-## My Contribution
+## Motivation and Context
 
-I was one of the contributors responsible for the development of Mandacaru as a product. Repository evidence supports participation across model benchmarking, product and engineering documentation, validation, issue tracking, and the broader AI-assisted document-processing effort.
+### STI and UFS
 
-The contribution is intentionally described as collaborative. It does not claim individual ownership of every component or artifact in the team project.
+Mandacaru was developed as an application in the context of **STI - Information Technology Superintendency, Federal University of Sergipe (UFS)**. The project materials frame the need around institutional information that must be organized, processed, and made more accessible to people and systems.
 
-## Architecture
+The public case study uses this context carefully: it explains why the problem mattered without claiming that Mandacaru was deployed across the university or that it produced unmeasured institutional gains.
+
+### The Problem
+
+Administrative and academic teams may need to read official documents and manually transfer relevant fields into spreadsheets or other systems. That workflow is repetitive, difficult to scale, and vulnerable to transcription inconsistencies.
+
+Mandacaru was designed to reduce this friction by combining file validation, text and metadata extraction, document classification, schema-guided field extraction, and structured export.
+
+## From Documentation to Product
+
+The project was developed through a sequence of product and engineering activities:
 
 ```mermaid
 flowchart LR
-    A[Institutional PDFs] --> B[Input validation]
-    B --> C[Text and metadata extraction]
-    C --> D[Document classification]
-    D --> E[Type-specific extraction]
-    E --> F[Structured records]
-    F --> G[Streamlit tables]
-    F --> H[CSV / XLSX / JSONL]
+    A[Institutional problem] --> B[Requirements and product framing]
+    B --> C[Architecture and technical specifications]
+    C --> D[Python processing package]
+    D --> E[Streamlit product interface]
+    E --> F[Validation and issue iteration]
+    F --> G[Benchmarking and deployment documentation]
+    G --> H[Documented product case study]
 ```
 
-The processing design separates file management, preprocessing, classification, extraction, and structuring. The project documentation also describes a reusable-library and API-oriented architecture for integration with external systems.
+The repository includes evidence of problem framing, value proposition work, requirements, UML views, architecture, coding standards, a user manual, deployment material, validation scripts, issue records, integration reports, release demonstrations, and model benchmarking.
 
-## Implemented Capabilities
+## Product Experience
 
-- PDF validation and text extraction.
-- Metadata extraction, including full text and page count.
-- Classification of resolutions, ordinances, normative instructions, PPCs, and generic documents.
-- Schema-guided extraction with LangExtract and a configured Google Gemini model.
-- Structured tabular results through pandas DataFrames.
-- Multiple-file processing with progress and status logs in the Streamlit interface.
-- CSV, Excel, and line-delimited JSON downloads.
-- Docker-based deployment guidance and generated technical documentation.
+The user-facing workflow is intentionally direct:
 
-## Technical Scope
+1. Upload one or more PDF documents.
+2. Let the system validate the input and extract available text and metadata.
+3. Review the detected document type and processing status.
+4. Inspect structured results in a table grouped by type.
+5. Download CSV, XLSX, or JSONL output for further use.
 
-The public documentation deliberately distinguishes implemented capabilities from technologies that are not evidenced in the reviewed project:
+The project documentation describes support for resolutions, ordinances, normative instructions, undergraduate course pedagogical projects, and a generic metadata fallback. The interface also exposes progress information and processing logs for multi-file workflows.
 
-| Capability | Publicly documented status |
+## How Mandacaru Works
+
+```mermaid
+flowchart LR
+    A[PDF upload] --> B[PDF signature validation]
+    B --> C[PyMuPDF text extraction]
+    B --> D[pypdf metadata extraction]
+    C --> E[Hybrid document classification]
+    D --> F[Metadata record]
+    E --> G[Type-specific extraction schema]
+    C --> G
+    G --> H[LangExtract + configured Gemini model]
+    H --> I[pandas structured record]
+    F --> I
+    I --> J[Streamlit table and logs]
+    I --> K[CSV / XLSX / JSONL]
+```
+
+### Document processing pipeline
+
+- **Ingestion:** accepts PDF paths or in-memory file bytes.
+- **Validation:** checks the PDF signature and skips invalid inputs.
+- **Text and metadata:** reads text with PyMuPDF and PDF metadata with pypdf.
+- **Classification:** uses a serialized scikit-learn pipeline with text, page-count, filename, header, and rule-based signals.
+- **Extraction:** selects document-specific fields and examples for LangExtract with a configured Gemini model.
+- **Structuring:** combines extracted fields and metadata into pandas DataFrames.
+- **Delivery:** displays grouped tables and enables CSV, Excel, and line-delimited JSON downloads.
+
+## System Architecture
+
+The documented engineering model separates a reusable Python library from the application layer. The architecture material also describes an API-oriented integration surface and optional external persistence.
+
+```mermaid
+flowchart TB
+    U[User or external client] --> W[Streamlit interface]
+    W --> L[Reusable Mandacaru Python package]
+    A[API integration boundary] --> L
+    L --> M[File management]
+    M --> P[Preprocessing]
+    P --> C[Document classification]
+    C --> X[Schema-guided extraction]
+    X --> O[Structured output]
+    O --> W
+    O --> E[CSV / XLSX / JSONL]
+    O -. optional documented extension .-> DB[External persistence]
+```
+
+The architecture follows a modular data-flow approach. It separates preprocessing, classification, extraction, structuring, and presentation so that the processing core can be reused independently of the interface.
+
+## Search and Retrieval Scope
+
+The briefing for this portfolio calls attention to embeddings, vector storage, semantic search, information retrieval, and RAG. The repository was checked specifically for these capabilities.
+
+They are not claimed here because the reviewed source and delivery artifacts do not evidence an embeddings pipeline, vector database, semantic-search implementation, or retrieval-augmented generation flow. Mandacaru is documented as an intelligent document **extraction and structuring** product. This scope boundary is part of the technical accuracy of the case study.
+
+## Engineering and Product Documentation
+
+The public documentation is organized around the most useful evidence rather than exposing the raw delivery archive.
+
+| Resource | What it demonstrates |
 | --- | --- |
-| Python | Implemented as the package and application language. |
-| OCR | Not claimed. The reviewed processing path extracts text from PDF text layers. |
-| NLP | Implemented through classification, schemas, examples, and language-model-assisted extraction. |
-| Embeddings | Not evidenced. |
-| Vector databases | Not evidenced. |
-| Semantic search | Not the product focus; Mandacaru structures documents rather than searching an indexed corpus. |
-| Information retrieval | Not claimed as a separate retrieval system. |
-| RAG | Not evidenced and not claimed. |
-| APIs | Described in architecture and delivery material; deployment must be verified separately. |
-| Data pipelines | Implemented from PDF ingestion through structured export. |
+| [User Manual](docs/user-manual.md) | User journey, supported document types, outputs, and practical limitations. |
+| [Architecture Overview](docs/architecture.md) | Components, data flow, boundaries, and architectural decisions. |
+| [API and Deployment Guide](docs/api-and-deployment.md) | Integration model, deployment assumptions, configuration, and operational concerns. |
+| [Model Benchmarking](docs/model-benchmarking.md) | Evaluation criteria, recorded comparison, interpretation, and engineering value. |
+| [Product Development Notes](docs/product-development.md) | Evidence that the work progressed from problem framing to product development. |
+| [Engineering Decisions](docs/engineering-decisions.md) | Why the project used modular processing, type-specific schemas, and source-grounded extraction. |
 
-## Model Experimentation
+The underlying implementation and original technical records are referenced through the [DCOMP-UFS Mandacaru repository](https://github.com/DCOMP-UFS/2025-1-praticas-mandacaru-extrator-dados). This repository is the curated English portfolio layer.
 
-The project contains a benchmark of local language models for PDF-to-CSV extraction. It evaluates output validity, schema conformity, latency, and cell-level agreement with a reference output. The recorded snapshot compares Gemma 7B, Mistral 7B, and Llama 3 8B.
+## Benchmarking and Technical Evaluation
 
-The benchmark is presented as an engineering experiment, not as a production performance guarantee. Raw documents, prompts, credentials, and test spreadsheets are not included in this public repository.
+The repository contains a benchmark of local language models for PDF-to-CSV extraction. It evaluates:
 
-## Product Value
+- CSV validity.
+- Header and row conformity.
+- Cell-level agreement with a reference output.
+- Recorded p50 and p95 processing time.
+- Trade-offs between response quality, latency, and implementation complexity.
 
-Universities and public-sector organizations maintain regulations, policies, course documents, and administrative acts as PDFs. Structuring those records can reduce manual transcription, support reporting and transparency workflows, and make institutional information easier to reuse in data systems.
+| Model | Recorded p50 / p95 | Valid CSV | Header and row checks | Cell accuracy |
+| --- | ---: | --- | --- | ---: |
+| Gemma 7B | 176.12 s / 176.12 s | Yes | Passed | 5% |
+| Mistral 7B | 445.30 s / 445.30 s | Yes | Passed | 0% |
+| Llama 3 8B | 187.50 s / 187.50 s | No | Failed | 0% |
 
-Potential applications include institutional repositories, academic registries, public-sector information-access workflows, structured catalogs of normative acts, and document-to-dashboard pipelines. These are potential use cases, not claims of customers or commercial scale.
+### Problem -> Alternatives -> Experiment -> Decision
 
-## Public Documentation
+The engineering problem was how to obtain structured fields from extracted PDF text while preserving a strict output contract. Alternative local models were evaluated against structural validity, content agreement, and latency. The recorded snapshot did not establish a production-ready winner: Gemma produced the fastest valid output, Mistral produced valid formatting at higher latency, and Llama 3 8B did not satisfy the output contract. The result supports treating local-model integration as an evaluated engineering path rather than a guaranteed production capability.
 
-- [Documentation index](docs/README.md)
-- [User manual](docs/user-manual.md)
-- [Architecture overview](docs/architecture.md)
-- [API and deployment guide](docs/api-and-deployment.md)
-- [Model benchmarking](docs/model-benchmarking.md)
-- [Product development notes](docs/product-development.md)
+These numbers describe a repository benchmark snapshot, not a production SLA or statistically representative evaluation. Raw documents, reference spreadsheets, prompts, and credentials remain private.
 
-The project records a Streamlit deployment at <https://mandacaru.streamlit.app/>. Availability and authentication can change, so this URL is provided as a historical project reference rather than a guaranteed public demo.
+## Engineering Decisions
 
-## Source Reference
+The documented design reflects several practical decisions:
 
-The implementation source associated with the project is maintained in the [DCOMP-UFS Mandacaru repository](https://github.com/DCOMP-UFS/2025-1-praticas-mandacaru-extrator-dados). This repository is a curated English portfolio and documentation surface.
+- **Reusable core:** keep document-processing logic in a Python package instead of binding it entirely to the web interface.
+- **Type-specific schemas:** use different extraction fields and examples for different institutional document types.
+- **Source-grounded extraction:** instruct the extraction layer to preserve source wording, avoid invented values, and return structured fields.
+- **Interoperable outputs:** produce CSV, XLSX, and JSONL so downstream consumers are not tied to one interface.
+- **Defensive input handling:** validate PDF signatures and report file-level processing errors.
+- **Operational feedback:** expose progress and logs during multi-file processing.
+- **Conservative capability claims:** distinguish implemented extraction from unimplemented semantic retrieval and RAG features.
 
-## Privacy and Publication Scope
+## Product Development Process
 
-This public repository intentionally excludes videos, audio, raw spreadsheets, raw benchmark inputs and outputs, issue exports, personal information, internal URLs, credentials, secret configuration, and untranslated delivery documents. The original local archive remains outside Git and was not deleted.
+Mandacaru demonstrates a broader development process than an isolated model call:
 
-## Skills Demonstrated
+```text
+Problem definition
+    -> requirements and product framing
+    -> research and model benchmarking
+    -> architecture and software specifications
+    -> reusable processing package
+    -> user interface and export workflow
+    -> validation, issues, and integration records
+    -> product documentation and deployment guidance
+```
 
-**AI and data:** Python, NLP, language-model-assisted extraction, document classification, structured data generation, model benchmarking, and data pipelines.
+The repository evidence includes a value proposition, project planning artifacts, requirements and use cases, UML diagrams, coding standards, architecture, an MVP summary, user and deployment manuals, validation scripts, issue records, integration reports, release material, and technical benchmarking.
 
-**Engineering:** software architecture, modular package design, PDF processing, Streamlit, Docker, logging, deployment documentation, and technical writing.
+## Technology Stack
 
-**Product development:** problem framing, requirements, user workflows, validation, issue-driven iteration, technical evaluation, and product communication.
+**Application and language**
+
+Python 3.10+, Streamlit, Docker, and Sphinx.
+
+**Document and data processing**
+
+PyMuPDF, pypdf, pandas, NumPy, openpyxl, XlsxWriter, joblib, and scikit-learn.
+
+**AI-assisted extraction**
+
+LangExtract with a configured Google Gemini model, document-specific examples, and structured extraction fields.
+
+**Engineering practices**
+
+Modular package layout, documented interfaces, PEP 8 and PEP 257 conventions, static-analysis configuration, structured logs, environment-based secret configuration, and concurrent multi-file processing in the interface.
+
+## Repository Structure
+
+```text
+.
+├── README.md
+├── assets/
+│   └── mandacaru-logo.png
+└── docs/
+    ├── README.md
+    ├── api-and-deployment.md
+    ├── architecture.md
+    ├── engineering-decisions.md
+    ├── model-benchmarking.md
+    ├── product-development.md
+    └── user-manual.md
+```
+
+This is a curated public portfolio repository. The implementation source remains in the original public project reference, while this repository keeps only English documentation and a safe brand asset.
+
+## My Contribution
+
+I was one of the people responsible for developing Mandacaru as a product. Repository evidence supports involvement across:
+
+- Model benchmarking and technical evaluation.
+- Product and engineering documentation.
+- Architecture, requirements, and development standards as part of the team effort.
+- Validation and issue-driven iteration.
+- AI-assisted document processing and product communication.
+
+These statements describe documented collaboration. They do not assign sole authorship, leadership, or ownership of components without direct evidence.
+
+## Impact
+
+### Demonstrated results
+
+- A documented PDF-processing workflow exists from input validation to structured export.
+- The product supports multiple institutional document categories and a generic fallback path.
+- A user-facing Streamlit workflow supports multi-file upload, processing feedback, tabular inspection, and downloads.
+- A reusable Python package separates document processing from the interface layer.
+- Model alternatives were evaluated using output validity, schema checks, cell accuracy, and recorded latency.
+- Deployment, API integration, architecture, validation, and user documentation were produced as part of the development effort.
+
+### Potential product impact
+
+The implemented workflow was designed to reduce the friction of locating, copying, organizing, and reusing information found in institutional PDF collections. Potential benefits include more accessible structured records, less repetitive manual document work, and easier integration with spreadsheets, dashboards, databases, or public-information workflows.
+
+These are logical product benefits, not measured STI/UFS outcomes. The repository does not provide evidence for adoption numbers, time savings, cost savings, or university-wide deployment.
+
+## Security and Privacy
+
+This public repository intentionally excludes:
+
+- Videos, audio, and raw media.
+- Raw benchmark inputs and outputs.
+- Spreadsheets containing test or issue data.
+- Personal information and contributor-specific delivery exports.
+- Internal URLs, server addresses, credentials, tokens, and secret configuration.
+- Untranslated source documents and private institutional material.
+
+Configuration examples use conceptual descriptions only. Secret values must be supplied through protected environment configuration and must never be committed.
+
+## Running the Project
+
+This repository is a curated documentation and portfolio surface. To run the implementation, use the setup instructions in the [source repository](https://github.com/DCOMP-UFS/2025-1-praticas-mandacaru-extrator-dados) and provide the required model configuration through a protected secret manager or environment configuration.
+
+The project records a Streamlit deployment at <https://mandacaru.streamlit.app/>. Availability and authentication can change, so this URL is a historical project reference rather than a guaranteed public demo.
