@@ -9,7 +9,7 @@
 > Intelligent document processing and data structuring for higher education
 
 <p align="center">
-  <img src="assets/mandacaru-logo.png" alt="Mandacaru logo" width="220">
+  <img src="assets/mandacaru-logo.png" alt="Mandacaru logo" width="360">
 </p>
 
 [![Documentation](https://img.shields.io/badge/documentation-English-2f4f3a)](docs/README.md)
