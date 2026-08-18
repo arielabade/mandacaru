@@ -1,14 +1,16 @@
 <p align="center">
-  <a href="https://github.com/DCOMP-UFS"><img src="assets/dcomp-ufs.jpg" alt="Department of Computing, UFS" height="110"></a>
-  <a href="https://www.ufs.br/"><img src="assets/ufs-logo.png" alt="Federal University of Sergipe" height="110"></a>
-  <a href="https://stic.ufs.br/pagina/20306"><img src="assets/sti-ufs-logo.png" alt="Information Technology Superintendency, UFS" height="110"></a>
+  <a href="https://github.com/DCOMP-UFS"><img src="assets/dcomp-ufs.png" alt="Department of Computing, UFS" height="88"></a>
+  <a href="https://www.ufs.br/"><img src="assets/ufs-logo.png" alt="Federal University of Sergipe" height="88"></a>
+  <a href="https://stic.ufs.br/pagina/20306"><img src="assets/sti-ufs-logo.png" alt="Information Technology Superintendency, UFS" height="88"></a>
 </p>
 
 # Mandacaru
 
 > Intelligent document processing and data structuring for higher education
 
-<img src="assets/mandacaru-logo.png" alt="Mandacaru logo" width="320">
+<p align="center">
+  <img src="assets/mandacaru-logo.png" alt="Mandacaru logo" width="220">
+</p>
 
 [![Documentation](https://img.shields.io/badge/documentation-English-2f4f3a)](docs/README.md)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
@@ -229,7 +231,10 @@ Modular package layout, documented interfaces, PEP 8 and PEP 257 conventions, st
 .
 ├── README.md
 ├── assets/
+│   ├── dcomp-ufs.png
 │   ├── mandacaru-logo.png
+│   ├── sti-ufs-logo.png
+│   ├── ufs-logo.png
 │   └── demo/
 │       ├── 01-upload-empty.png
 │       ├── 02-processing.png
