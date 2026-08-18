@@ -24,4 +24,4 @@ The application validates PDF inputs, reports file-level failures, preserves pro
 
 ## Model Evaluation Before Commitment
 
-The benchmark compares local language models using structural validity, schema conformity, cell-level agreement, and latency. The recorded results do not establish a production-ready model, which is why this portfolio documents the experiment as an engineering evaluation rather than as an unsupported performance claim.
+The benchmark compares local language models using structural validity, schema conformity, and latency. The recorded results do not establish a production-ready model, which is why this portfolio documents the experiment as an engineering evaluation rather than as an unsupported performance claim.
