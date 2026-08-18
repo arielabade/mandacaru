@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="assets/dcomp-ufs.jpg" alt="Department of Computing, UFS" height="110">
-  <img src="assets/ufs-logo.png" alt="Federal University of Sergipe" height="110">
-  <img src="assets/sti-ufs-logo.png" alt="Information Technology Superintendency, UFS" height="110">
+  <a href="https://github.com/DCOMP-UFS"><img src="assets/dcomp-ufs.jpg" alt="Department of Computing, UFS" height="110"></a>
+  <a href="https://www.ufs.br/"><img src="assets/ufs-logo.png" alt="Federal University of Sergipe" height="110"></a>
+  <a href="https://stic.ufs.br/pagina/20306"><img src="assets/sti-ufs-logo.png" alt="Information Technology Superintendency, UFS" height="110"></a>
 </p>
 
 # Mandacaru
@@ -32,7 +32,7 @@ The application was developed for the STI/UFS context. This establishes the inst
 
 ### STI and UFS
 
-Mandacaru was developed as an application in the context of **STI - Information Technology Superintendency, Federal University of Sergipe (UFS)**. The project materials frame the need around institutional information that must be organized, processed, and made more accessible to people and systems.
+Mandacaru was developed as an application in the context of **[STI - Information Technology Superintendency](https://stic.ufs.br/pagina/20306), [Federal University of Sergipe (UFS)](https://www.ufs.br/)**. The project materials frame the need around institutional information that must be organized, processed, and made more accessible to people and systems.
 
 The public case study uses this context carefully: it explains why the problem mattered without claiming that Mandacaru was deployed across the university or that it produced unmeasured institutional gains.
 
@@ -137,7 +137,7 @@ The public documentation is organized around the most useful evidence rather tha
 | [Product Development Notes](docs/product-development.md) | Evidence that the work progressed from problem framing to product development. |
 | [Engineering Decisions](docs/engineering-decisions.md) | Why the project used modular processing, type-specific schemas, and source-grounded extraction. |
 
-The underlying implementation and original technical records are referenced through the [DCOMP-UFS Mandacaru repository](https://github.com/DCOMP-UFS/2025-1-praticas-mandacaru-extrator-dados). This repository is the curated English portfolio layer.
+The underlying implementation and original technical records are referenced through the [DCOMP-UFS Mandacaru repository](https://github.com/DCOMP-UFS/2025-1-praticas-mandacaru-extrator-dados), within the [DCOMP-UFS GitHub organization](https://github.com/DCOMP-UFS). This repository is the curated English portfolio layer.
 
 ## Benchmarking and Technical Evaluation
 
