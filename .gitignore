@@ -1,0 +1,25 @@
+# The original local archive is intentionally excluded from the public repository.
+Mandacaru - Extrator de Dados-20260818T134611Z-1-001/
+
+# Media and raw delivery artifacts.
+*.mp4
+*.mkv
+*.mp3
+*.xlsx
+*.csv
+*.log
+
+# Secrets and local configuration.
+.env
+.env.*
+**/secrets.toml
+**/.streamlit/secrets.toml
+*.pem
+*.key
+
+# Local and generated files.
+.DS_Store
+__pycache__/
+.pytest_cache/
+dist/
+build/
