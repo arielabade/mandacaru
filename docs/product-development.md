@@ -16,6 +16,16 @@ The project artifacts cover:
 - Model benchmarking and technical evaluation.
 - Product identity and presentation material.
 
+## Evidence Map
+
+| Development stage | Evidence represented in the project |
+| --- | --- |
+| Motivation | Problem framing, value proposition, project model, and product pitch. |
+| Documentation | Requirements, use cases, architecture, coding standards, manuals, and API material. |
+| Product | Reusable Python package, Streamlit interface, document schemas, exports, and deployment guidance. |
+| Evaluation | Validation scripts, exploratory testing, issue iteration, integration records, and model benchmarking. |
+| Impact | Demonstrated structured-processing flows and potential reduction of repetitive document work. |
+
 ## Development Approach
 
 The work progressed through a sequence of product and engineering activities: define the document problem, model the workflow, establish document schemas, implement the extraction pipeline, expose it through an interface, validate behavior, document deployment, and evaluate alternative models.
