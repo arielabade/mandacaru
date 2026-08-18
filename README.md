@@ -71,6 +71,21 @@ The user-facing workflow is intentionally direct:
 
 The project documentation describes support for resolutions, ordinances, normative instructions, undergraduate course pedagogical projects, and a generic metadata fallback. The interface also exposes progress information and processing logs for multi-file workflows.
 
+## Product Demo
+
+The following sanitized screenshots show the documented product flow with generic sample data: upload documents, process a batch, inspect structured records, and export the result.
+
+<table>
+  <tr>
+    <td width="50%"><strong>1. Upload documents</strong><br><a href="assets/demo/01-upload-empty.png"><img src="assets/demo/01-upload-empty.png" alt="Mandacaru upload screen" width="100%"></a></td>
+    <td width="50%"><strong>2. Process a batch</strong><br><a href="assets/demo/02-processing.png"><img src="assets/demo/02-processing.png" alt="Mandacaru batch processing screen" width="100%"></a></td>
+  </tr>
+  <tr>
+    <td width="50%"><strong>3. Review structured data</strong><br><a href="assets/demo/03-structured-data.png"><img src="assets/demo/03-structured-data.png" alt="Mandacaru structured data screen" width="100%"></a></td>
+    <td width="50%"><strong>4. Export a spreadsheet</strong><br><a href="assets/demo/04-exported-spreadsheet.png"><img src="assets/demo/04-exported-spreadsheet.png" alt="Mandacaru spreadsheet export" width="100%"></a></td>
+  </tr>
+</table>
+
 ## How Mandacaru Works
 
 ```mermaid
@@ -214,7 +229,12 @@ Modular package layout, documented interfaces, PEP 8 and PEP 257 conventions, st
 .
 ├── README.md
 ├── assets/
-│   └── mandacaru-logo.png
+│   ├── mandacaru-logo.png
+│   └── demo/
+│       ├── 01-upload-empty.png
+│       ├── 02-processing.png
+│       ├── 03-structured-data.png
+│       └── 04-exported-spreadsheet.png
 └── docs/
     ├── README.md
     ├── api-and-deployment.md
