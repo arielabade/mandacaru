@@ -13,10 +13,10 @@
 > Intelligent document processing and data structuring for higher education
 
 [![Documentation](https://img.shields.io/badge/documentation-English-1F7A4F)](docs/README.md)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Interface-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Public Summary](https://img.shields.io/badge/public-summary-1F7A4F)](docs/README.md)
+[![Sanitized](https://img.shields.io/badge/technical-details-sanitized-6B7280)](#security-and-privacy)
 
-Mandacaru is an intelligent document-processing application developed in the context of the Information Technology Superintendency (STI) of the Federal University of Sergipe (UFS). It was designed to transform institutional PDF documents into structured, reusable information through a Python processing package, a Streamlit interface, language-model-assisted extraction, validation workflows, and engineering documentation.
+Mandacaru is an intelligent document-processing application developed in the context of the Information Technology Superintendency (STI) of the Federal University of Sergipe (UFS). It was designed to transform institutional PDF documents into structured, reusable information through a reusable processing core, a web interface, assisted extraction, validation workflows, and engineering documentation.
 
 The product story is best understood as **Motivation -> Documentation -> Product -> Impact**. The repository shows a real product-development and engineering effort centered on intelligent document extraction and structured data delivery.
 
@@ -69,8 +69,8 @@ The project was developed through a sequence of product and engineering activiti
 flowchart LR
     A[Institutional problem] --> B[Requirements and product framing]
     B --> C[Architecture and technical specifications]
-    C --> D[Python processing package]
-    D --> E[Streamlit product interface]
+    C --> D[Reusable processing core]
+    D --> E[Product interface]
     E --> F[Validation and issue iteration]
     F --> G[Benchmarking and deployment documentation]
     G --> H[Documented product case study]
@@ -110,16 +110,16 @@ The following sanitized screenshots show the documented product flow with generi
 ```mermaid
 flowchart LR
     A[PDF upload] --> B[PDF signature validation]
-    B --> C[PyMuPDF text extraction]
-    B --> D[pypdf metadata extraction]
+    B --> C[Text extraction]
+    B --> D[Metadata extraction]
     C --> E[Hybrid document classification]
     D --> F[Metadata record]
     E --> G[Type-specific extraction schema]
     C --> G
-    G --> H[LangExtract + configured Gemini model]
-    H --> I[pandas structured record]
+    G --> H[Assisted field extraction]
+    H --> I[Structured record]
     F --> I
-    I --> J[Streamlit table and logs]
+    I --> J[Review table and logs]
     I --> K[CSV / XLSX / JSONL]
 ```
 
@@ -127,20 +127,20 @@ flowchart LR
 
 - **Ingestion:** accepts PDF paths or in-memory file bytes.
 - **Validation:** checks the PDF signature and skips invalid inputs.
-- **Text and metadata:** reads text with PyMuPDF and PDF metadata with pypdf.
-- **Classification:** uses a serialized scikit-learn pipeline with text, page-count, filename, header, and rule-based signals.
-- **Extraction:** selects document-specific fields and examples for LangExtract with a configured Gemini model.
-- **Structuring:** combines extracted fields and metadata into pandas DataFrames.
+- **Text and metadata:** extracts readable document content and available file metadata.
+- **Classification:** combines document text, file characteristics, and rule-based signals to identify the document type.
+- **Extraction:** selects document-specific fields and examples for assisted extraction.
+- **Structuring:** combines extracted fields and metadata into structured records.
 - **Delivery:** displays grouped tables and enables CSV, Excel, and line-delimited JSON downloads.
 
 ## System Architecture
 
-The documented engineering model separates a reusable Python library from the application layer. The architecture material also describes an API-oriented integration surface and optional external persistence.
+The documented engineering model separates a reusable processing core from the application layer. The architecture material also describes an API-oriented integration surface and optional external persistence.
 
 ```mermaid
 flowchart TB
-    U[User or external client] --> W[Streamlit interface]
-    W --> L[Reusable Mandacaru Python package]
+    U[User or external client] --> W[Product interface]
+    W --> L[Reusable Mandacaru processing core]
     A[API integration boundary] --> L
     L --> M[File management]
     M --> P[Preprocessing]
@@ -171,7 +171,7 @@ The public documentation is organized around the most useful evidence rather tha
 | [Product Development Notes](docs/product-development.md) | Evidence that the work progressed from problem framing to product development. |
 | [Engineering Decisions](docs/engineering-decisions.md) | Why the project used modular processing, type-specific schemas, and source-grounded extraction. |
 
-The underlying implementation and original technical records are referenced through the [DCOMP-UFS Mandacaru repository](https://github.com/DCOMP-UFS/2025-1-praticas-mandacaru-extrator-dados), within the [DCOMP-UFS GitHub organization](https://github.com/DCOMP-UFS). This repository is the curated English portfolio layer.
+The underlying implementation and original technical records are kept outside this curated public portfolio layer. This repository focuses on the product flow, documented decisions, sanitized evidence, and user-facing behavior.
 
 ## Benchmarking and Technical Evaluation
 
@@ -184,13 +184,13 @@ The repository contains a benchmark of local language models for PDF-to-CSV extr
 
 | Model | Recorded p50 / p95 | Valid CSV | Header and row checks |
 | --- | ---: | --- | --- |
-| Gemma 7B | 176.12 s / 176.12 s | Yes | Passed |
-| Mistral 7B | 445.30 s / 445.30 s | Yes | Passed |
-| Llama 3 8B | 187.50 s / 187.50 s | No | Failed |
+| Alternative A | 176.12 s / 176.12 s | Yes | Passed |
+| Alternative B | 445.30 s / 445.30 s | Yes | Passed |
+| Alternative C | 187.50 s / 187.50 s | No | Failed |
 
 ### Problem -> Alternatives -> Experiment -> Decision
 
-The engineering problem was how to obtain structured fields from extracted PDF text while preserving a strict output contract. Alternative local models were evaluated against structural validity and latency. The recorded snapshot did not establish a production-ready winner: Gemma produced the fastest valid output, Mistral produced valid formatting at higher latency, and Llama 3 8B did not satisfy the output contract. The result supports treating local-model integration as an evaluated engineering path rather than a guaranteed production capability.
+The engineering problem was how to obtain structured fields from extracted PDF text while preserving a strict output contract. Alternative extraction approaches were evaluated against structural validity and latency. The recorded snapshot did not establish a production-ready winner: one alternative produced the fastest valid output, another produced valid formatting at higher latency, and another did not satisfy the output contract. The result supports treating model-assisted integration as an evaluated engineering path rather than a guaranteed production capability.
 
 These numbers describe a repository benchmark snapshot, not a production SLA or statistically representative evaluation. Raw documents, reference spreadsheets, prompts, and credentials remain private.
 
@@ -198,7 +198,7 @@ These numbers describe a repository benchmark snapshot, not a production SLA or 
 
 The documented design reflects several practical decisions:
 
-- **Reusable core:** keep document-processing logic in a Python package instead of binding it entirely to the web interface.
+- **Reusable core:** keep document-processing logic independent from the user interface.
 - **Type-specific schemas:** use different extraction fields and examples for different institutional document types.
 - **Source-grounded extraction:** instruct the extraction layer to preserve source wording, avoid invented values, and return structured fields.
 - **Interoperable outputs:** produce CSV, XLSX, and JSONL so downstream consumers are not tied to one interface.
@@ -215,7 +215,7 @@ Problem definition
     -> requirements and product framing
     -> research and model benchmarking
     -> architecture and software specifications
-    -> reusable processing package
+    -> reusable processing core
     -> user interface and export workflow
     -> validation, issues, and integration records
     -> product documentation and deployment guidance
@@ -223,23 +223,25 @@ Problem definition
 
 The repository evidence includes a value proposition, project planning artifacts, requirements and use cases, UML diagrams, coding standards, architecture, an MVP summary, user and deployment manuals, validation scripts, issue records, integration reports, release material, and technical benchmarking.
 
-## Technology Stack
+## Implementation Capabilities
 
-**Application and language**
+This public portfolio describes what the implementation does without exposing private stack choices.
 
-Python 3.10+, Streamlit, Docker, and Sphinx.
+**Application surface**
+
+A web-based interface supports multi-file upload, progress feedback, tabular review, and download actions.
 
 **Document and data processing**
 
-PyMuPDF, pypdf, pandas, NumPy, openpyxl, XlsxWriter, joblib, and scikit-learn.
+The processing layer validates files, extracts readable content and metadata, classifies document types, applies document-specific schemas, and prepares structured records.
 
-**AI-assisted extraction**
+**Assisted extraction**
 
-LangExtract with a configured Google Gemini model, document-specific examples, and structured extraction fields.
+The extraction layer uses configured model-assisted processing with document-specific examples and structured output fields.
 
 **Engineering practices**
 
-Modular package layout, documented interfaces, PEP 8 and PEP 257 conventions, static-analysis configuration, structured logs, environment-based secret configuration, and concurrent multi-file processing in the interface.
+Modular boundaries, documented interfaces, coding standards, static-analysis configuration, structured logs, protected secret configuration, and concurrent multi-file processing in the interface.
 
 ## Repository Structure
 
@@ -286,8 +288,8 @@ These statements describe documented collaboration. They do not assign sole auth
 
 - A documented PDF-processing workflow exists from input validation to structured export.
 - The product supports multiple institutional document categories and a generic fallback path.
-- A user-facing Streamlit workflow supports multi-file upload, processing feedback, tabular inspection, and downloads.
-- A reusable Python package separates document processing from the interface layer.
+- A user-facing workflow supports multi-file upload, processing feedback, tabular inspection, and downloads.
+- A reusable processing core separates document processing from the interface layer.
 - Model alternatives were evaluated using output validity, schema checks, and recorded latency.
 - Deployment, API integration, architecture, validation, and user documentation were produced as part of the development effort.
 
@@ -305,13 +307,13 @@ This public repository intentionally excludes:
 - Raw benchmark inputs and outputs.
 - Spreadsheets containing test or issue data.
 - Personal information and contributor-specific delivery exports.
-- Internal URLs, server addresses, credentials, tokens, and secret configuration.
+- Internal URLs, server addresses, credentials, tokens, secret configuration, and stack-specific implementation details.
 - Untranslated source documents and private institutional material.
 
 Configuration examples use conceptual descriptions only. Secret values must be supplied through protected environment configuration and must never be committed.
 
-## Running the Project
+## Access and Execution
 
-This repository is a curated documentation and portfolio surface. To run the implementation, use the setup instructions in the [source repository](https://github.com/DCOMP-UFS/2025-1-praticas-mandacaru-extrator-dados) and provide the required model configuration through a protected secret manager or environment configuration.
+This repository is a curated documentation and portfolio surface. Runtime setup details, private deployment addresses, and implementation-specific configuration are intentionally omitted from the public version.
 
-The project records a Streamlit deployment at <https://mandacaru.streamlit.app/>. Availability and authentication can change, so this URL is a historical project reference rather than a guaranteed public demo.
+Access to any runnable deployment depends on the project owner and the target environment.

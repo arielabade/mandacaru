@@ -9,7 +9,7 @@ The project artifacts cover:
 - Problem framing and value proposition.
 - Requirements and user workflows.
 - Architecture views and component responsibilities.
-- An MVP that evolved from a reusable extraction library into a web interface.
+- An MVP that evolved from a reusable extraction core into a web interface.
 - User documentation and deployment guidance.
 - Manual validation and exploratory testing.
 - Issue-driven iteration and integration records.
@@ -22,7 +22,7 @@ The project artifacts cover:
 | --- | --- |
 | Motivation | Problem framing, value proposition, project model, and product pitch. |
 | Documentation | Requirements, use cases, architecture, coding standards, manuals, and API material. |
-| Product | Reusable Python package, Streamlit interface, document schemas, exports, and deployment guidance. |
+| Product | Reusable processing core, web interface, document schemas, exports, and deployment guidance. |
 | Evaluation | Validation scripts, exploratory testing, issue iteration, integration records, and model benchmarking. |
 | Impact | Demonstrated structured-processing flows and potential reduction of repetitive document work. |
 
