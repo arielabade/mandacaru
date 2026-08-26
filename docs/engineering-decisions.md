@@ -4,7 +4,7 @@ This document summarizes the engineering reasoning supported by the project arti
 
 ## Reusable Processing Core
 
-The project separates a Python package from the user interface. This boundary keeps file validation, preprocessing, classification, extraction, and structuring reusable by other application surfaces.
+The project separates a reusable processing core from the user interface. This boundary keeps file validation, preprocessing, classification, extraction, and structuring reusable by other application surfaces.
 
 ## Document-Specific Schemas
 
@@ -16,7 +16,7 @@ The extraction design emphasizes literal information from the source document, v
 
 ## Interoperable Outputs
 
-CSV, XLSX, and JSONL outputs allow users and downstream systems to consume the result without being tied to the Streamlit interface. The same structured records can support spreadsheets, data pipelines, dashboards, or future integrations.
+CSV, XLSX, and JSONL outputs allow users and downstream systems to consume the result without being tied to the web interface. The same structured records can support spreadsheets, data pipelines, dashboards, or future integrations.
 
 ## Defensive Processing
 

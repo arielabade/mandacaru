@@ -19,13 +19,13 @@ The exact endpoint, authentication policy, and deployment address depend on the 
 
 The documented web deployment uses:
 
-- Python 3.11.
-- Streamlit.
-- A Python environment containing the package and application dependencies.
+- A managed runtime compatible with the application.
+- A web interface service.
+- An environment containing the application dependencies.
 - A supported language-model provider configured through a secret manager or protected environment configuration.
-- Docker as an optional deployment mechanism.
+- A packaged deployment mechanism, when required by the target environment.
 
-The Streamlit service is documented to run on port 8501 in a containerized setup. The deployment should bind the service to the host interface required by the target environment and protect model credentials from source control.
+The web service port and network binding depend on the target environment. The deployment should bind the service to the host interface required by that environment and protect model credentials from source control.
 
 ## Configuration and Security
 
